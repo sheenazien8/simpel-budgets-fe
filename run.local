@@ -1,0 +1,5 @@
+#!/bin/bash
+# run nextjs in the background using pm2 ywarn run dev
+pm2 start npm --name "budget-fe" -- run dev
+
+
