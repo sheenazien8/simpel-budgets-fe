@@ -108,8 +108,8 @@ export default function Page({ lang, locale }: any) {
           </div>
           <div className="">
             <div className="grid grid-cols-2 gap-3 my-4">
-              {financialRecordData?.map((fincance) => (
-                <div className="px-3 py-4 border border-gray-300 rounded-lg shadow-gray-300 shadow">
+              {financialRecordData?.map((fincance, index) => (
+                <div className="px-3 py-4 border border-gray-300 rounded-lg shadow-gray-300 shadow" key={index}>
                   <p className="font-light text-sm">{translate(lang.label, { label: fincance.label })}</p>
                   <p className="font-semibold text-base">
                     {formatMoney(fincance?.total)}
