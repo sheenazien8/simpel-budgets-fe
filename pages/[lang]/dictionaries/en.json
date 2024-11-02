@@ -34,6 +34,7 @@
   },
   "cashflow": {
     "title": "Cashflow",
+    "no_budget": "No budget",
     "income": "Income",
     "expense": "Expense",
     "budget": "Budget",

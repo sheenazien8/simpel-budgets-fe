@@ -240,7 +240,7 @@ export default function Page({ dict, locale }: IRecord) {
                 description={dict.cashflow.empty.description}
                 button={
                   <div className="flex justify-center">
-                    <Button type="button" onClick={() => {}}>
+                    <Button type="button" onClick={() => { }}>
                       <PlusIcon className="h-5" /> {dict.cashflow.input.add}
                     </Button>
                   </div>
@@ -254,15 +254,18 @@ export default function Page({ dict, locale }: IRecord) {
               key={index}
               bgColor={
                 Number(cashflow.type) == 1 ||
-                (cashflow.debt_payment?.debt?.type as unknown as string) == "1"
+                  (cashflow.debt_payment?.debt?.type as unknown as string) == "1"
                   ? "bg-red-600"
                   : "bg-green-600"
               }
               title={
                 <div className="flex justify-between">
-                  <span key={1} className="font-semibold">
-                    {cashflow.budget_name}
-                  </span>
+                  {cashflow.budget_name != undefined && cashflow.budget_name != "" && cashflow.budget_name != null ?
+                    <span key={1} className="font-semibold">
+                      {cashflow.budget_name}
+                    </span>
+                    : <div>{dict.cashflow.no_budget}</div>
+                  }
                   {cashflow.type == 1 ? (
                     <p className="text-red-600">
                       -{formatMoney(cashflow.nominal)}
@@ -276,12 +279,12 @@ export default function Page({ dict, locale }: IRecord) {
               }
               icon={
                 Number(cashflow.type) == 1 ||
-                (cashflow.debt_payment?.debt?.type as unknown as string) ==
+                  (cashflow.debt_payment?.debt?.type as unknown as string) ==
                   "1" ? (
                   <ArrowRightOnRectangleIcon className="w-6" />
                 ) : Number(cashflow.type) == 2 ||
                   (cashflow.debt_payment?.debt?.type as unknown as string) ==
-                    "2" ? (
+                  "2" ? (
                   <ArrowLeftOnRectangleIcon className="w-6" />
                 ) : (
                   <ArrowsRightLeftIcon className="w-6" />

@@ -34,6 +34,7 @@
   },
   "cashflow": {
     "title": "Transaksi",
+    "no_budget": "Tidak ada budget",
     "income": "Pemasukan",
     "expense": "Pengeluaran",
     "budget": "Anggaran",
